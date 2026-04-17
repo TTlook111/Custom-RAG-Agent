@@ -5,7 +5,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 # 加载项目根目录的 .env 配置
-load_dotenv(Path(__file__).resolve().parents[2] / ".env")
+load_dotenv()
 
 
 def _get_required_env(key: str) -> str:
