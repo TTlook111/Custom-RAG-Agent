@@ -1,6 +1,6 @@
 # Custom-RAG-Agent
 
-按功能拆分后的专业化 RAG 项目结构：
+精简后的 RAG 项目结构：
 
 ```text
 Custom-RAG-Agent/
@@ -8,18 +8,10 @@ Custom-RAG-Agent/
 └─ custom-rag-agent/
    ├─ config/
    │  └─ config.py               # 环境变量与模型配置
-   ├─ models/
-   │  └─ model_factory.py        # Chat/Embedding 模型工厂
    ├─ retrievers/
    │  └─ web_retriever.py        # 文档加载、切分、向量化与检索器构建
-   ├─ tools/
-   │  └─ retrieval_tools.py      # LangChain Tool 封装
-   ├─ prompts/
-   │  └─ rag_prompts.py          # Prompt 模板
    ├─ workflows/
-   │  └─ rag_graph.py            # LangGraph 节点与图编排
-   └─ sources/
-      └─ blog_urls.py            # 数据源列表
+   │  └─ rag_graph.py            # Prompt、Tool、节点与工作流编排
 ```
 
 ## 运行前配置

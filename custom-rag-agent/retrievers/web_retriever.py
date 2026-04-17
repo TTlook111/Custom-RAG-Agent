@@ -1,11 +1,12 @@
 """检索器构建模块。"""
 
 from langchain_community.document_loaders import WebBaseLoader
+from langchain_community.embeddings.dashscope import DashScopeEmbeddings
 from langchain_core.retrievers import BaseRetriever
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-from models.model_factory import build_embedding_model
+from config.config import DASHSCOPE_API_KEY, EMBEDDING_MODEL_NAME
 
 
 def build_retriever(urls: list[str]) -> BaseRetriever:
@@ -28,6 +29,9 @@ def build_retriever(urls: list[str]) -> BaseRetriever:
     # 将切分后的文档写入内存向量库，并转换成检索器接口。
     vectorstore = InMemoryVectorStore.from_documents(
         documents=doc_splits,
-        embedding=build_embedding_model(),
+        embedding=DashScopeEmbeddings(
+            model=EMBEDDING_MODEL_NAME,
+            dashscope_api_key=DASHSCOPE_API_KEY,
+        ),
     )
     return vectorstore.as_retriever()
