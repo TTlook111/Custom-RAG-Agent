@@ -5,10 +5,18 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 # 加载项目根目录的 .env 配置
-load_dotenv()
+load_dotenv(Path(__file__).resolve().parents[2] / ".env")
 
 
 def _get_required_env(key: str) -> str:
+    """读取必填环境变量。
+
+    Args:
+        key: 环境变量名称。
+
+    Returns:
+        str: 对应环境变量的值。
+    """
     value = os.getenv(key)
     if not value:
         raise ValueError(f"未检测到 {key}，请先在 .env 文件中配置。")

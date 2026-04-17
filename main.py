@@ -15,7 +15,14 @@ from workflows.rag_graph import build_graph
 
 
 def build_app_graph():
-    """构建应用级 graph，供外部直接导入使用。"""
+    """构建应用级 graph，供外部直接导入使用。
+
+    Args:
+        无。
+
+    Returns:
+        CompiledStateGraph: 构建完成的 RAG 工作流图对象。
+    """
     retriever = build_retriever(BLOG_URLS)
     retriever_tool = build_retriever_tool(retriever)
     response_model = build_chat_model()

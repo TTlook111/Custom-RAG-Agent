@@ -1,27 +1,27 @@
 """Prompt 模板集中管理。"""
 
 GRADE_PROMPT = (
-    "You are a grader assessing relevance of a retrieved document to a user question. \n "
-    "Here is the retrieved document: \n\n {context} \n\n"
-    "Here is the user question: {question} \n"
-    "If the document contains keyword(s) or semantic meaning related to the user question, grade it as relevant. \n"
-    "Give a binary score 'yes' or 'no' score to indicate whether the document is relevant to the question."
+    "你是一名文档相关性评估助手。\n"
+    "下面是检索到的文档内容：\n\n{context}\n\n"
+    "下面是用户问题：{question}\n"
+    "如果文档中的关键词或语义与问题相关，请判断为相关。\n"
+    "请只返回 yes 或 no，用来表示该文档是否与问题相关。"
 )
 
 REWRITE_PROMPT = (
-    "Look at the input and try to reason about the underlying semantic intent / meaning.\n"
-    "Here is the initial question:"
+    "请分析用户输入，并理解其背后的真实语义意图。\n"
+    "下面是原始问题："
     "\n ------- \n"
     "{question}"
     "\n ------- \n"
-    "Formulate an improved question:"
+    "请输出一个更适合检索的改写问题："
 )
 
 GENERATE_PROMPT = (
-    "You are an assistant for question-answering tasks. "
-    "Use the following pieces of retrieved context to answer the question. "
-    "If you don't know the answer, just say that you don't know. "
-    "Use three sentences maximum and keep the answer concise.\n"
-    "Question: {question} \n"
-    "Context: {context}"
+    "你是一个问答助手。"
+    "请根据下面检索到的上下文来回答用户问题。"
+    "如果你不知道答案，就直接说明不知道。"
+    "最多使用三句话，并保持回答简洁。\n"
+    "问题：{question}\n"
+    "上下文：{context}"
 )
