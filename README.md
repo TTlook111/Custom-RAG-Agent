@@ -14,6 +14,25 @@ Custom-RAG-Agent/
    │  └─ rag_graph.py            # Prompt、Tool、节点与工作流编排
 ```
 
+## 环境说明
+
+项目使用 `uv` 管理 Python 环境与依赖，Python 版本要求为 `>=3.13`。
+
+## 初始化环境
+
+在项目根目录执行：
+
+```bash
+uv venv
+uv sync
+```
+
+Windows 激活虚拟环境：
+
+```powershell
+.venv\Scripts\activate
+```
+
 ## 运行前配置
 
 在项目根目录 `.env` 中配置：
@@ -25,6 +44,12 @@ EMBEDDING_MODEL_NAME=text-embedding-v4
 ```
 
 ## 使用方式
+
+推荐在 `uv` 环境中运行项目：
+
+```bash
+uv run python main.py
+```
 
 主入口会导出可直接使用的 `graph`：
 
