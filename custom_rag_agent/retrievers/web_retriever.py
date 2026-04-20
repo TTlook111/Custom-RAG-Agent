@@ -6,7 +6,7 @@ from langchain_core.retrievers import BaseRetriever
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-from config.config import DASHSCOPE_API_KEY, EMBEDDING_MODEL_NAME
+from custom_rag_agent.config.config import DASHSCOPE_API_KEY, EMBEDDING_MODEL_NAME
 
 
 def build_retriever(urls: list[str]) -> BaseRetriever:

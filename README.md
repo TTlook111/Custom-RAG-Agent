@@ -5,7 +5,7 @@
 ```text
 Custom-RAG-Agent/
 ├─ main.py                        # 入口编排，导出 graph
-└─ custom-rag-agent/
+└─ custom_rag_agent/
    ├─ config/
    │  └─ config.py               # 环境变量与模型配置
    ├─ retrievers/
