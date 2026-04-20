@@ -22,8 +22,8 @@ def build_retriever(urls: list[str]) -> BaseRetriever:
     docs_list = [item for sublist in docs for item in sublist]
     # 先对文档进行切分，避免单段文本过长影响向量检索效果。
     text_splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
-        chunk_size=100,
-        chunk_overlap=50,
+        chunk_size=500,
+        chunk_overlap=100,
     )
     doc_splits = text_splitter.split_documents(docs_list)
     # 将切分后的文档写入内存向量库，并转换成检索器接口。

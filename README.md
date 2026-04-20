@@ -43,6 +43,10 @@ CHAT_MODEL_NAME=qwen3-max
 EMBEDDING_MODEL_NAME=text-embedding-v4
 ```
 
+说明：
+- `DASHSCOPE_API_KEY` 为必填项。
+- `CHAT_MODEL_NAME`、`EMBEDDING_MODEL_NAME` 为可选项；未配置时分别默认使用 `qwen3-max` 与 `text-embedding-v4`。
+
 ## 使用方式
 
 推荐在 `uv` 环境中运行项目：
