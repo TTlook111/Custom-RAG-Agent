@@ -2,7 +2,7 @@
 
 from typing import Literal, TypedDict
 
-from langchain.messages import HumanMessage
+from langchain.messages import AIMessage, HumanMessage
 from langchain.tools import tool
 from langchain_community.chat_models.tongyi import ChatTongyi
 from langchain_core.retrievers import BaseRetriever
@@ -120,6 +120,11 @@ def build_graph(retriever: BaseRetriever):
         """基于检索上下文生成最终答案。"""
         question = state["messages"][0].content
         context = state["messages"][-1].content
+        if not str(context).strip():
+            fallback = AIMessage(
+                content="当前未检索到可用上下文，无法给出可靠答案。请补充更具体的问题关键词，或提供更相关的数据源后再试。",
+            )
+            return {"messages": [fallback]}
         prompt = GENERATE_PROMPT.format(question=question, context=context)
         response = response_model.invoke([{"role": "user", "content": prompt}])
         return {"messages": [response]}

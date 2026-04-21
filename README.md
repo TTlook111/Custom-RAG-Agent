@@ -47,6 +47,12 @@ EMBEDDING_MODEL_NAME=text-embedding-v4
 - `DASHSCOPE_API_KEY` 为必填项。
 - `CHAT_MODEL_NAME`、`EMBEDDING_MODEL_NAME` 为可选项；未配置时分别默认使用 `qwen3-max` 与 `text-embedding-v4`。
 
+## 检索缓存说明
+
+- 检索器会优先使用 FAISS 本地持久化缓存，缓存目录为 `.cache/faiss/<cache_key>/`。
+- 当 URL 列表、切分参数或 embedding 模型变化时，会自动生成新的缓存键并重建索引。
+- 若运行环境未安装 FAISS，则自动退化为内存向量库（重启后会重新构建索引）。
+
 ## 使用方式
 
 推荐在 `uv` 环境中运行项目：
